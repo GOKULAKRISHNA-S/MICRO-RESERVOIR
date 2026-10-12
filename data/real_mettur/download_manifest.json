@@ -1,0 +1,125 @@
+{
+  "study_id": "mettur-reservoir",
+  "data_status": "genuine_public_satellite_data_downloaded_and_verified",
+  "source_catalog": "https://earth-search.aws.element84.com/v1/search",
+  "collection": "sentinel-2-c1-l2a",
+  "study_bbox_wgs84": [
+    77.72,
+    11.74,
+    77.9,
+    11.88
+  ],
+  "cloud_note": "Scene-level catalog cloud-cover metadata only. No local cloud mask was supplied or independently verified; the application does not perform cloud detection.",
+  "observations": [
+    {
+      "path": "data/real_mettur/date1_2026-08-30_B03.tif",
+      "band": "B03",
+      "asset_key": "green",
+      "source_href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/43/P/HP/2026/8/S2B_T43PHP_20260830T052309_L2A/B03.tif",
+      "source_item_id": "S2B_T43PHP_20260830T052309_L2A",
+      "acquisition_datetime": "2026-08-30T05:25:28.418000Z",
+      "scene_cloud_cover_percent": 25.577471,
+      "crs": "EPSG:32643",
+      "width": 1614,
+      "height": 1571,
+      "transform": [
+        10.0,
+        0.0,
+        799980.0,
+        0.0,
+        -10.0,
+        1314940.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "nodata": 0.0,
+      "valid_pixel_count": 2488475,
+      "total_pixel_count": 2535594
+    },
+    {
+      "path": "data/real_mettur/date1_2026-08-30_B08.tif",
+      "band": "B08",
+      "asset_key": "nir",
+      "source_href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/43/P/HP/2026/8/S2B_T43PHP_20260830T052309_L2A/B08.tif",
+      "source_item_id": "S2B_T43PHP_20260830T052309_L2A",
+      "acquisition_datetime": "2026-08-30T05:25:28.418000Z",
+      "scene_cloud_cover_percent": 25.577471,
+      "crs": "EPSG:32643",
+      "width": 1614,
+      "height": 1571,
+      "transform": [
+        10.0,
+        0.0,
+        799980.0,
+        0.0,
+        -10.0,
+        1314940.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "nodata": 0.0,
+      "valid_pixel_count": 2488475,
+      "total_pixel_count": 2535594
+    },
+    {
+      "path": "data/real_mettur/date2_2026-09-29_B03.tif",
+      "band": "B03",
+      "asset_key": "green",
+      "source_href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/43/P/HP/2026/9/S2B_T43PHP_20260929T052225_L2A/B03.tif",
+      "source_item_id": "S2B_T43PHP_20260929T052225_L2A",
+      "acquisition_datetime": "2026-09-29T05:25:30.888000Z",
+      "scene_cloud_cover_percent": 19.786981,
+      "crs": "EPSG:32643",
+      "width": 1614,
+      "height": 1571,
+      "transform": [
+        10.0,
+        0.0,
+        799980.0,
+        0.0,
+        -10.0,
+        1314940.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "nodata": 0.0,
+      "valid_pixel_count": 2488475,
+      "total_pixel_count": 2535594
+    },
+    {
+      "path": "data/real_mettur/date2_2026-09-29_B08.tif",
+      "band": "B08",
+      "asset_key": "nir",
+      "source_href": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/43/P/HP/2026/9/S2B_T43PHP_20260929T052225_L2A/B08.tif",
+      "source_item_id": "S2B_T43PHP_20260929T052225_L2A",
+      "acquisition_datetime": "2026-09-29T05:25:30.888000Z",
+      "scene_cloud_cover_percent": 19.786981,
+      "crs": "EPSG:32643",
+      "width": 1614,
+      "height": 1571,
+      "transform": [
+        10.0,
+        0.0,
+        799980.0,
+        0.0,
+        -10.0,
+        1314940.0
+      ],
+      "resolution": [
+        10.0,
+        10.0
+      ],
+      "nodata": 0.0,
+      "valid_pixel_count": 2488475,
+      "total_pixel_count": 2535594
+    }
+  ],
+  "grid_compatibility": "identical CRS, dimensions, and affine transform verified by downloader",
+  "downloaded_at_utc": "2026-10-12T13:44:54.626132+00:00"
+}

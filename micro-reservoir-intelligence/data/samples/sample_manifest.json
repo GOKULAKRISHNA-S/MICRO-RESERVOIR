@@ -1,0 +1,219 @@
+{
+  "manifest_version": "2.0.0",
+  "project": "Micro-Reservoir Intelligence",
+  "description": "Multi-temporal multispectral dataset catalog classifying genuine observations, user-supplied candidates, and synthetic test fixtures.",
+  "sensor": "Sentinel-2 MSI Level-2A",
+  "nominal_resolution_meters": 10.0,
+  "crs": "EPSG:32643",
+  "verified_genuine_observations": [],
+  "verified_genuine_status": "BLOCKED_AWAITING_GENUINE_SATELLITE_DATA",
+  "verified_genuine_notice": "No genuine satellite imagery is bundled in the repository. Do not present synthetic test fixtures as real observations.",
+  "user_supplied_candidates": [
+    {
+      "reservoir_id": "USER_CANDIDATE_01",
+      "status": "AWAITING_LOCAL_FILES",
+      "required_inputs": {
+        "baseline": {
+          "description": "Post-monsoon full capacity observation",
+          "bands_required": ["B03 (Green, 10m)", "B08 (NIR, 10m)"],
+          "expected_crs": "Projected planar UTM (e.g., EPSG:32643)",
+          "optional_cloud_mask": "Scene Classification Layer (SCL) or external cloud mask"
+        },
+        "comparison": {
+          "description": "Dry-season or subsequent monitoring observation",
+          "bands_required": ["B03 (Green, 10m)", "B08 (NIR, 10m)"],
+          "expected_crs": "Matching baseline projected planar UTM",
+          "optional_cloud_mask": "Scene Classification Layer (SCL) or external cloud mask"
+        }
+      }
+    }
+  ],
+  "synthetic_test_scenarios": [
+    {
+      "id": "scenario_decline_seasonal_drawdown",
+      "name": "Seasonal Reservoir Drawdown",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated post-monsoon full reservoir vs pre-summer drawdown showing significant surface water contraction.",
+      "expected_status": "potential_decline",
+      "baseline": {
+        "scene_id": "S2A_20231015_T43QGE_RES01",
+        "date": "2023-10-15",
+        "cloud_cover_percent": 1.5,
+        "description": "Simulated full storage following monsoon withdrawal",
+        "file_path": "data/samples/res01_20231015.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20240315_T43QGE_RES01",
+        "date": "2024-03-15",
+        "cloud_cover_percent": 2.2,
+        "description": "Simulated irrigation discharge and evaporation drawdown",
+        "file_path": "data/samples/res01_20240315.npz"
+      }
+    },
+    {
+      "id": "scenario_increase_monsoon_recharge",
+      "name": "Monsoon Inflow Recharge",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated dry-season low water body replenished by intense precipitation inflow.",
+      "expected_status": "potential_increase",
+      "baseline": {
+        "scene_id": "S2B_20240520_T43QGE_RES02",
+        "date": "2024-05-20",
+        "cloud_cover_percent": 3.0,
+        "description": "Simulated dry season minimum capacity",
+        "file_path": "data/samples/res02_20240520.npz"
+      },
+      "comparison": {
+        "scene_id": "S2A_20240810_T43QGE_RES02",
+        "date": "2024-08-10",
+        "cloud_cover_percent": 4.8,
+        "description": "Simulated post-rain flood storage expansion",
+        "file_path": "data/samples/res02_20240810.npz"
+      }
+    },
+    {
+      "id": "scenario_stable_controlled_storage",
+      "name": "Stable Storage Regimen",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated managed percolation tank maintaining steady surface water area between consecutive passes.",
+      "expected_status": "stable",
+      "baseline": {
+        "scene_id": "S2A_20231101_T43QGE_RES03",
+        "date": "2023-11-01",
+        "cloud_cover_percent": 0.8,
+        "description": "Simulated baseline November storage observation",
+        "file_path": "data/samples/res03_20231101.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20231121_T43QGE_RES03",
+        "date": "2023-11-21",
+        "cloud_cover_percent": 1.1,
+        "description": "Simulated three weeks later, steady storage",
+        "file_path": "data/samples/res03_20231121.npz"
+      }
+    },
+    {
+      "id": "scenario_insufficient_cloud_cover",
+      "name": "Cloud Obscuration Deficit",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated high cloud cover obstructing optical spectral bands, triggering insufficient_data status.",
+      "expected_status": "insufficient_data",
+      "baseline": {
+        "scene_id": "S2A_20240705_T43QGE_RES04",
+        "date": "2024-07-05",
+        "cloud_cover_percent": 5.0,
+        "description": "Simulated clear baseline observation",
+        "file_path": "data/samples/res04_20240705.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20240725_T43QGE_RES04",
+        "date": "2024-07-25",
+        "cloud_cover_percent": 68.0,
+        "description": "Simulated cloud bank obstructing over 60% of reservoir area",
+        "file_path": "data/samples/res04_20240725.npz"
+      }
+    }
+  ],
+  "sample_scenarios": [
+    {
+      "id": "scenario_decline_seasonal_drawdown",
+      "name": "Seasonal Reservoir Drawdown",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated post-monsoon full reservoir vs pre-summer drawdown showing significant surface water contraction.",
+      "expected_status": "potential_decline",
+      "baseline": {
+        "scene_id": "S2A_20231015_T43QGE_RES01",
+        "date": "2023-10-15",
+        "cloud_cover_percent": 1.5,
+        "description": "Simulated full storage following monsoon withdrawal",
+        "file_path": "data/samples/res01_20231015.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20240315_T43QGE_RES01",
+        "date": "2024-03-15",
+        "cloud_cover_percent": 2.2,
+        "description": "Simulated irrigation discharge and evaporation drawdown",
+        "file_path": "data/samples/res01_20240315.npz"
+      }
+    },
+    {
+      "id": "scenario_increase_monsoon_recharge",
+      "name": "Monsoon Inflow Recharge",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated dry-season low water body replenished by intense precipitation inflow.",
+      "expected_status": "potential_increase",
+      "baseline": {
+        "scene_id": "S2B_20240520_T43QGE_RES02",
+        "date": "2024-05-20",
+        "cloud_cover_percent": 3.0,
+        "description": "Simulated dry season minimum capacity",
+        "file_path": "data/samples/res02_20240520.npz"
+      },
+      "comparison": {
+        "scene_id": "S2A_20240810_T43QGE_RES02",
+        "date": "2024-08-10",
+        "cloud_cover_percent": 4.8,
+        "description": "Simulated post-rain flood storage expansion",
+        "file_path": "data/samples/res02_20240810.npz"
+      }
+    },
+    {
+      "id": "scenario_stable_controlled_storage",
+      "name": "Stable Storage Regimen",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated managed percolation tank maintaining steady surface water area between consecutive passes.",
+      "expected_status": "stable",
+      "baseline": {
+        "scene_id": "S2A_20231101_T43QGE_RES03",
+        "date": "2023-11-01",
+        "cloud_cover_percent": 0.8,
+        "description": "Simulated baseline November storage observation",
+        "file_path": "data/samples/res03_20231101.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20231121_T43QGE_RES03",
+        "date": "2023-11-21",
+        "cloud_cover_percent": 1.1,
+        "description": "Simulated three weeks later, steady storage",
+        "file_path": "data/samples/res03_20231121.npz"
+      }
+    },
+    {
+      "id": "scenario_insufficient_cloud_cover",
+      "name": "Cloud Obscuration Deficit",
+      "data_type": "synthetic_test_fixture",
+      "is_real_observation": false,
+      "verification_status": "SYNTHETIC_BENCHMARK_ONLY",
+      "description": "Simulated high cloud cover obstructing optical spectral bands, triggering insufficient_data status.",
+      "expected_status": "insufficient_data",
+      "baseline": {
+        "scene_id": "S2A_20240705_T43QGE_RES04",
+        "date": "2024-07-05",
+        "cloud_cover_percent": 5.0,
+        "description": "Simulated clear baseline observation",
+        "file_path": "data/samples/res04_20240705.npz"
+      },
+      "comparison": {
+        "scene_id": "S2B_20240725_T43QGE_RES04",
+        "date": "2024-07-25",
+        "cloud_cover_percent": 68.0,
+        "description": "Simulated cloud bank obstructing over 60% of reservoir area",
+        "file_path": "data/samples/res04_20240725.npz"
+      }
+    }
+  ]
+}
